@@ -17,3 +17,22 @@ p {
     display: flex;
     justify-content: center;
 }
+
+button {
+    border: none;
+    background-color: rgba(0,0,0,0.2);
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    min-height:24px;
+    border-bottom: solid 1px lightgray;
+}
+
+.chat-input {
+}
+
+input {
+    padding: 0 18px 0 18px;
+    min-height: 24px;
+    border: none;
+    border-bottom: solid 1px lightgray;
+}
