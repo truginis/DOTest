@@ -1,6 +1,6 @@
 document.onload = init();
 
-let socket = io();
+let socket = io.connect('http://localhost:3000');
 var input;
 var button;
 
