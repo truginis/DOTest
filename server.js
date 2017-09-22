@@ -9,16 +9,25 @@ let port = process.env.PORT || 3000;
 
 app.use(express.static(path.join(__dirname, 'public')));
 
+let userCount = 0;
+
 io.on('connection', (socket)=>{
+    userCount++;
+    io.emit('user count', userCount);
     console.log(`A user has connected`);
+
     socket.on('disconnect', ()=>{
+        userCount --;
+        io.emit('user count', userCount);
         console.log('user disconnected');
     });
 
     socket.on('chat message', (data)=> {
+        io.emit('chat message', data);
         console.log(`Received a message of: ${data}`);
     })
 });
+
 
 http.listen(port, ()=>{
     console.log(`Listening on port ${port}`);
